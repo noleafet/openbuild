@@ -1,0 +1,39 @@
+# -----------------------------------------------------------------------------
+# System Files
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# -----------------------------------------------------------------------------
+# IDEs and Text Editors (Optional, but highly recommended)
+# -----------------------------------------------------------------------------
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# -----------------------------------------------------------------------------
+# Logs and Runtime Files
+# -----------------------------------------------------------------------------
+*.log
+*.tmp
+*.temp
+
+
+# -----------------------------------------------------------------------------
+# Directories
+# -----------------------------------------------------------------------------
+# Ignore only the subfolders inside 'you_project' - default volume directory
+proj/your_proj/*/
+
+# Ignore the script folder and everything inside it - on testing
+__dev_scripts/

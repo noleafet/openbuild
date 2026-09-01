@@ -1,0 +1,69 @@
+x-shared-env: &global_env
+  env_file:
+    - .env
+
+networks:
+  shared-network:
+    driver: bridge
+
+services:
+  app_db:
+    <<: *global_env
+    extends:
+      file: ${DEVOPS_POSTGRES}
+      service: postgres_db
+  sonarqube_db:
+    <<: *global_env
+    extends:
+      file: ${DEVOPS_SONAR}
+      service: sonarqube_db
+  sonarqube:
+    <<: *global_env
+    extends:
+      file: ${DEVOPS_SONAR}
+      service: sonarqube
+  prometheus:
+    <<: *global_env
+    extends:
+      file: ${DEVOPS_PROMETHEUS}
+      service: prometheus
+    network_mode: "host" 
+  grafana:
+    <<: *global_env
+    extends:
+      file: ${DEVOPS_GRAFANA}
+      service: grafana
+
+
+  # Your Project Services
+  # Spring Boot Backend Service
+  backend:
+    <<: *global_env
+    build:
+      context: <project_backend_location>
+      dockerfile: <project_backend_dockerfile>
+    container_name: your_project_backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://app_db:5432/${DB_NAME}
+      - SPRING_DATASOURCE_USERNAME=${DB_USER}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      app_db:
+        condition: service_healthy
+
+  # Next.js Frontend Service
+  frontend:
+    <<: *global_env
+    build:
+      context: <project_frontend_location>
+      dockerfile: <project_frontend_dockerfile>
+    container_name: your_project_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8080/api
+      - NEXT_SWAGGER_URL=http://localhost:8080/v3/api-docs
+    depends_on:
+      - backend

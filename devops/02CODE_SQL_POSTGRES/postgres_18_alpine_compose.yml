@@ -1,0 +1,22 @@
+services:
+  postgres_db:
+    image: docker.io/library/postgres:18-alpine
+    #container_name: postgres_db
+    userns_mode: "keep-id"
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports: 
+      - "5432:5432"
+    volumes:
+      - ${VOLUME_DIR}/postgres_18_alpine_data:/var/lib/postgresql:Z,U
+      # OPTIONAL: Uncomment to run initialization scripts on first boot
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    shm_size: 128mb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sonar"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
