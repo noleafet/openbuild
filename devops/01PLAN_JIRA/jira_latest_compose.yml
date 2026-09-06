@@ -1,0 +1,8 @@
+services:
+  jira:
+    image: docker.io/atlassian/jira-software:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${VOLUME_DIR}/jira_data:/var/atlassian/application-data/jira
+

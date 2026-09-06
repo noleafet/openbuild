@@ -1,0 +1,9 @@
+services:
+  prometheus:
+    image: docker.io/prom/prometheus:v3.14.0-distroless
+    ports:
+      - "9090:9090"
+    volumes:
+      - ${VOLUME_DIR}/prometheus:/etc/prometheus
+      - ${VOLUME_DIR}/prometheus_data:/prometheus
+

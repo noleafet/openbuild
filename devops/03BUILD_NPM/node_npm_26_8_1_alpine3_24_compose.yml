@@ -1,0 +1,6 @@
+services:
+  node_npm:
+    image: docker.io/library/node:26.8.1-alpine3.24
+    volumes:
+      - ${NODE_WORKSPACE}:/usr/src/app
+

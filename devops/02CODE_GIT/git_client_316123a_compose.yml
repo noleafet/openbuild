@@ -1,0 +1,6 @@
+services:
+  git_client:
+    image: docker.io/alpine/git:316123a
+    volumes:
+      - ./workspace:/git
+

@@ -1,0 +1,7 @@
+services:
+  gitlab_runner:
+    image: docker.io/gitlab/gitlab-runner:alpine
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${VOLUME_DIR}/gitlab_runner_config:/etc/gitlab-runner
+

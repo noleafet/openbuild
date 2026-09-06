@@ -1,0 +1,6 @@
+services:
+  logstash:
+    image: docker.io/logstash/logstash:8.12.0
+    volumes:
+      - ${VOLUME_DIR}/logstash:/usr/share/logstash/pipeline
+

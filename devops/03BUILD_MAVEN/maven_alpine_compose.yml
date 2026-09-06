@@ -1,0 +1,7 @@
+services:
+  maven:
+    image: docker.io/library/maven:alpine
+    volumes:
+      - ${MAVEN_WORKSPACE}:/usr/src/app
+      - ~/.m2:/root/.m2
+

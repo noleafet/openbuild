@@ -1,0 +1,6 @@
+services:
+  terraform:
+    image: docker.io/hashicorp/terraform:1.16.1
+    volumes:
+      - ${VOLUME_DIR}/terraform:/workspace
+

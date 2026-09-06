@@ -1,0 +1,6 @@
+services:
+  kubectl:
+    image: docker.io/bitnami/kubectl:latest
+    volumes:
+      - ~/.kube:/root/.kube
+

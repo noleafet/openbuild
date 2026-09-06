@@ -1,0 +1,12 @@
+services:
+  gitlab:
+    image: docker.io/gitlab/gitlab-ce:latest
+    ports:
+      - "443:443"
+      - "80:80"
+      - "222:22"
+    volumes:
+      - ${VOLUME_DIR}/gitlab_config:/etc/gitlab
+      - ${VOLUME_DIR}/gitlab_logs:/var/log/gitlab
+      - ${VOLUME_DIR}/gitlab_data:/var/opt/gitlab
+

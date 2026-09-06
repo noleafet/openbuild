@@ -1,0 +1,6 @@
+services:
+  ansible:
+    image: docker.io/ansible/ansible-runner:latest
+    volumes:
+      - ${VOLUME_DIR}/ansible:/runner
+

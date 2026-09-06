@@ -1,0 +1,6 @@
+services:
+  gradle:
+    image: docker.io/library/gradle:jdk
+    volumes:
+      - ${GRADLE_WORKSPACE}:/home/gradle/project
+

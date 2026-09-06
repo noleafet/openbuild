@@ -1,0 +1,9 @@
+services:
+  sonarqube:
+    image: docker.io/library/sonarqube:lts-community
+    ports:
+      - "9000:9000"
+    volumes:
+      - ${VOLUME_DIR}/sonarqube_data:/opt/sonarqube/data
+      - ${VOLUME_DIR}/sonarqube_extensions:/opt/sonarqube/extensions
+

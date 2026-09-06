@@ -1,0 +1,6 @@
+services:
+  argocd:
+    image: docker.io/argoproj/argocd:v2.6.15
+    ports:
+      - "8082:8080"
+

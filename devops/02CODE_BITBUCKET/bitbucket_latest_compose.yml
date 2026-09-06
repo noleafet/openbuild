@@ -1,0 +1,9 @@
+services:
+  bitbucket:
+    image: docker.io/atlassian/bitbucket-server:latest
+    ports:
+      - "7990:7990"
+      - "7999:7999"
+    volumes:
+      - ${VOLUME_DIR}/bitbucket_data:/var/atlassian/application-data/bitbucket
+

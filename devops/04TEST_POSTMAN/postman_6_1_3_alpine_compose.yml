@@ -1,0 +1,6 @@
+services:
+  postman:
+    image: docker.io/postman/newman:6.1.3-alpine
+    volumes:
+      - ./tests:/etc/newman
+

@@ -1,0 +1,8 @@
+services:
+  grafana:
+    image: docker.io/grafana/grafana:13.2.1-slim
+    ports:
+      - "3000:3000"
+    volumes:
+      - ${VOLUME_DIR}/grafana_data:/var/lib/grafana
+

@@ -28,12 +28,8 @@ Under `devops/`, the repository is grouped by stage and technology area:
 - `07OPERATE_*` — configuration and operations tools (Ansible, Docker Compose, Podman, Terraform, Puppet, Salt, Chef)
 - `08MONITOR_*` — monitoring and observability tools (Grafana, Prometheus, ELK, Splunk, Datadog, New Relic, Nagios)
 
-The repo also includes:
-
-- `__dev_scripts/compose_yaml_generate.sh` — a helper script that generates basic local compose YAML files for common services
-
 ### 2. Compose blueprint generation utility
-The script `devops/compose_yaml_generate.sh` creates example local Compose files for many common services. It is useful as a quick way to generate local container blueprints for tools without writing every YAML file by hand.
+The script `script/py/generate_devops_yaml.py` creates example local Compose files for many common services. It is useful as a quick way to generate local container blueprints for tools without writing every YAML file by hand.
 
 ### 3. Example app
 The `proj/your_project/` folder contains:
@@ -158,9 +154,7 @@ These values are shared by the compose stacks and allow you to change database n
 This repository is intentionally structured as a hands-on reference:
 
 - It shows how containerized tool stacks are organized by function.
-- It demonstrates the reuse of Compose fragments and `extends` definitions.
 - It gives a realistic application example with frontend, backend, and observability services.
-- It provides a base for learning Docker, Podman, Compose, PostgreSQL, Prometheus, Grafana, and SonarQube together.
 - It can be adapted to other projects by replacing the app build context and environment variables.
 
 A simple pattern for using this repo in a new project is:
@@ -178,8 +172,6 @@ A simple pattern for using this repo in a new project is:
 ```text
 openbuild/
 ├── devops/
-│   ├── Architecture.md
-│   ├── compose_yaml_generate.sh
 │   ├── 01PLAN_*/
 │   ├── 02CODE_*/
 │   ├── 03BUILD_*/
@@ -196,16 +188,6 @@ openbuild/
 ├── README.md
 └── ...
 ```
-
----
-
-## Recommended learning path
-
-1. Start with devops architecture to understand the services.
-2. Open `devops/compose_yaml_generate.sh` to see how common compose files are generated.
-3. Review `proj/your_project/build.yml` to understand a full local stack.
-4. Change the environment variables, ports, and build context for your own project.
-5. Add more tools from the `devops/` folders as you progress.
 
 ---
 

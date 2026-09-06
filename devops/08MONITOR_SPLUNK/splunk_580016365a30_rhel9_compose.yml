@@ -1,0 +1,12 @@
+services:
+  splunk:
+    image: docker.io/splunk/splunk:580016365a30-rhel9
+    ports:
+      - "8000:8000"
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      SPLUNK_PASSWORD: ${SPLUNK_PASSWORD}
+    volumes:
+      - ${VOLUME_DIR}/splunk_data:/opt/splunk/var
+      - ${VOLUME_DIR}/splunk_etc:/opt/splunk/etc
+

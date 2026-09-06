@@ -1,0 +1,9 @@
+services:
+  confluence_server:
+    image: docker.io/atlassian/confluence-server:latest
+    ports:
+      - "8090:8090"
+      - "8091:8091"
+    volumes:
+      - ${VOLUME_DIR}/confluence_data:/var/atlassian/application-data/confluence
+
