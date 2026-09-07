@@ -2,6 +2,10 @@
 
 (v. build-one)
 
+[![YAML](https://img.shields.io/badge/YAML-configuration-cb171e?logo=yaml&logoColor=white)](https://yaml.org/)
+[![Podman Compose](https://img.shields.io/badge/Podman%20Compose-container%20orchestration-892ca0?logo=podman&logoColor=white)](https://docs.podman.io/en/latest/markdown/podman-compose.1.html)
+[![Docker Compose](https://img.shields.io/badge/Docker%20Compose-container%20orchestration-2496ed?logo=docker&logoColor=white)](https://docs.docker.com/compose/)
+
 OpenBuild is a local, lightweight DevOps playground designed for learning, experimenting, and composing containerized services using Docker or Podman.
 
 Navigating the modern DevOps landscape often feels overwhelming due to tool sprawl. OpenBuild solves this by organizing common, open-source DevOps utilities by lifecycle stages, giving you a centralized sandbox to test how different technologies interact.
@@ -19,17 +23,32 @@ The project is divided into two main parts:
 ### 1. DevOps tool catalog
 Under `devops/`, the repository is grouped by stage and technology area:
 
-- `01PLAN_*` — planning tools (Confluence, Jira, Trello)
-- `02CODE_*` — source control and code hosting (Git, GitHub, GitLab, Bitbucket,), database (e.g PostgreSQL)
-- `03BUILD_*` — build tools (Maven, Gradle, npm, pnpm, Bazel, SBT, etc.)
-- `04TEST_*` — testing tools (JUnit, Selenium, Cypress, SonarQube, Postman)
-- `05RELEASE_*` — release management and CI/CD tools (GitLab CI/CD, Jenkins, CircleCI, Argo CD, Spinnaker, Octopus Deploy)
-- `06DEPLOY_*` — deployment targets (Docker, Kubernetes, OpenShift, Amazon ECS)
-- `07OPERATE_*` — configuration and operations tools (Ansible, Docker Compose, Podman, Terraform, Puppet, Salt, Chef)
-- `08MONITOR_*` — monitoring and observability tools (Grafana, Prometheus, ELK, Splunk, Datadog, New Relic, Nagios)
+- `01PLAN_*` — planning tools (Confluence, Jira)
+- `02CODE_*` — source control and code hosting (Git, GitLab, Bitbucket), database (e.g PostgreSQL)
+- `03BUILD_*` — build tools (Maven, Gradle, npm)
+- `04TEST_*` — testing tools (Cypress, SonarQube, Postman)
+- `05RELEASE_*` — release management and CI/CD tools (GitLab CI/CD, Jenkins, CircleCI, Argo CD, Octopus Deploy)
+- `06DEPLOY_*` — deployment targets (Kubernetes, OpenShift)
+- `07OPERATE_*` — configuration and operations tools (Ansible, Terraform)
+- `08MONITOR_*` — monitoring and observability tools (Grafana, Prometheus, ELK, Splunk, Datadog)
 
-### 2. Compose blueprint generation utility
-The script `script/py/generate_devops_yaml.py` creates example local Compose files for many common services. It is useful as a quick way to generate local container blueprints for tools without writing every YAML file by hand.
+### 2. Compose blueprint generation utility (Optional)
+
+[![Python](https://img.shields.io/badge/Python-3.x-3776ab?logo=python&logoColor=white)](https://www.python.org/)
+[![uv](https://img.shields.io/badge/uv-latest-de5fe9?logo=astral&logoColor=white)](https://docs.astral.sh/uv/)
+
+The script `scripts/py/generate_devops_yaml.py` creates example local Compose files for many common services. It resolves suitable container image tags from Docker Hub and writes the generated files into `devops/`. 
+
+### Generate DevOps Compose files
+
+From the repository root, run the generator from its directory so its relative output path resolves to `devops/`:
+
+```bash
+cd scripts/py
+uv run generate_devops_yaml.py
+```
+
+The first run may take a little longer while `uv` creates the isolated environment and installs the inline dependencies.
 
 ### 3. Example app
 The `proj/your_project/` folder contains:
@@ -109,8 +128,6 @@ This pattern is useful for learning because it demonstrates how a single project
 - A local Linux/macOS environment with enough CPU and memory for the example services
 
 ### Run with Docker Compose
-
-From the repository root:
 
 ```bash
 docker compose -f build.yml up -d
