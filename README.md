@@ -14,10 +14,11 @@ The goal is simple: make it effortless to explore different DevOps technologies 
 
 ## What this repository contains
 
-The project is divided into two main parts:
+The project is divided into three main parts:
 
 - `devops/` — a catalog of devops-related container definitions and lifecycle categories
 - `proj/your_project/` — a sample project that wires a PostgreSQL service into a minimal compose setup
+- `scripts/` — a collection of utility scripts including the compose blueprint generation 
 
 
 ### 1. DevOps tool catalog
@@ -51,7 +52,7 @@ uv run generate_devops_yaml.py
 The first run may take a little longer while `uv` creates the isolated environment and installs the inline dependencies.
 
 ### 3. Example app
-The `proj/your_project/` folder contains:
+The `samples/openbook/` folder contains:
 
 - `build.yml` — simplified compose stack example
 - `.env` — shared environment variables
@@ -63,7 +64,7 @@ This is the practical example showing how a project can be deployed with one com
 
 ## Project example architecture
 
-The sample tested stack in `proj/your_project/build.yml` includes:
+The sample tested stack in `samples/openbook/build.yml` includes:
 
 - PostgreSQL database for the app
 - SonarQube database
@@ -212,7 +213,12 @@ openbuild/
 │   └── your_project/
 │       ├── .env
 │       ├── build.yml
-│       └── ...genarated_local_volume_dirs/
+│       └── ...generated_local_volume_dirs/
+├── scripts/
+│   ├── py/
+│   │   └── generate_devops_yaml.py
+│   └── ps/
+│       └── pcup.ps1
 ├── README.md
 └── ...
 ```
