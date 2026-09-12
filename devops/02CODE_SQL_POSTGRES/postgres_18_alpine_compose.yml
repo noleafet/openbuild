@@ -8,10 +8,11 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
+      PGDATA: ${PGDATA:-/var/lib/postgresql/18/docker}
     ports: 
       - "5432:5432"
     volumes:
-      - ${VOLUME_DIR}/postgres_18_alpine_data:/var/lib/postgresql:Z,U
+      - ${VOLUME_DIR}/postgres_18_alpine_data:/var/lib/postgresql:Z
       # OPTIONAL: Uncomment to run initialization scripts on first boot
       # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     shm_size: 128mb

@@ -5,6 +5,6 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ${VOLUME_DIR}/prometheus_3.13.1/prometheus.yml:/etc/prometheus/prometheus.yml:Z,U
-      - ${VOLUME_DIR}/prometheus_3.13.1_data:/prometheus:Z,U
+      - ${VOLUME_DIR}/prometheus_3.13.1/prometheus.yml:/etc/prometheus/prometheus.yml:Z
+      - ${VOLUME_DIR}/prometheus_3.13.1_data:/prometheus:Z
     restart: unless-stopped

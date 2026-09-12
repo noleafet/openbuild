@@ -133,11 +133,22 @@ This pattern is useful for learning because it demonstrates how a single project
 docker compose -f build.yml up -d
 ```
 
-### Run with Podman Compose
+### Run with Podman Compose on Linux/macOS
 
 ```bash
 podman compose -f build.yml up -d
 ```
+
+### Run with Podman Compose on Windows
+
+If Podman does not automatically create the local directories used by the bind mounts, run the PowerShell helper from the example project directory. It creates the missing volume directories before starting the stack:
+
+```powershell
+cd proj/your_project
+& ../../scripts/ps/pcup.ps1
+```
+
+If PostgreSQL 18 or newer reports a permission error on Windows, uncomment `PGDATA=/mnt/postgres_win/data` in `proj/your_project/.env` and run the helper again.
 
 The example typically exposes these services:
 

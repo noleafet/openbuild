@@ -34,6 +34,7 @@ Icon?
 # -----------------------------------------------------------------------------
 # Ignore only the subfolders inside 'you_project' - default volume directory
 proj/your_proj/*/
+samples/openbook/*/
 
 # Ignore the script folder and everything inside it - on testing
 __dev_scripts/

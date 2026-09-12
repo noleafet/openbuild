@@ -13,7 +13,7 @@ services:
     ports: !override
       - "${SONAR_DB_HOST_PORT:-5432}:5432"
     volumes:
-      - ${VOLUME_DIR}/sonarqube_community_postgres_data:/var/lib/postgresql:Z,U
+      - ${VOLUME_DIR}/sonarqube_community_postgres_data:/var/lib/postgresql:Z
 
   sonarqube:
     image: docker.io/library/sonarqube:community
@@ -28,9 +28,9 @@ services:
       - SONAR_JDBC_USERNAME=${SONAR_DB_USER}
       - SONAR_JDBC_PASSWORD=${SONAR_DB_PASSWORD}
     volumes:
-      - ${VOLUME_DIR}/sonarqube_community_data:/opt/sonarqube/data:Z,U
-      - ${VOLUME_DIR}/sonarqube_community_extensions:/opt/sonarqube/extensions:Z,U
-      - ${VOLUME_DIR}/sonarqube_community_logs:/opt/sonarqube/logs:Z,U
+      - ${VOLUME_DIR}/sonarqube_community_data:/opt/sonarqube/data:Z
+      - ${VOLUME_DIR}/sonarqube_community_extensions:/opt/sonarqube/extensions:Z
+      - ${VOLUME_DIR}/sonarqube_community_logs:/opt/sonarqube/logs:Z
     networks:
       - shared-network
     ulimits:
