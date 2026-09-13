@@ -1,12 +1,12 @@
 # OpenBuild
 
-(v. build-one)
+> A local, lightweight DevOps playground for learning, experimenting, and composing containerized services.
+
+**Version:** `build-one`
 
 [![YAML](https://img.shields.io/badge/YAML-configuration-cb171e?logo=yaml&logoColor=white)](https://yaml.org/)
 [![Podman Compose](https://img.shields.io/badge/Podman%20Compose-container%20orchestration-892ca0?logo=podman&logoColor=white)](https://docs.podman.io/en/latest/markdown/podman-compose.1.html)
 [![Docker Compose](https://img.shields.io/badge/Docker%20Compose-container%20orchestration-2496ed?logo=docker&logoColor=white)](https://docs.docker.com/compose/)
-
-OpenBuild is a local, lightweight DevOps playground designed for learning, experimenting, and composing containerized services using Docker or Podman.
 
 Navigating the modern DevOps landscape often feels overwhelming due to tool sprawl. OpenBuild solves this by organizing common, open-source DevOps utilities by lifecycle stages, giving you a centralized sandbox to test how different technologies interact.
 
