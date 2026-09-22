@@ -1,6 +1,7 @@
 services:
   prometheus:
     image: docker.io/prom/prometheus:v3.14.0-distroless
+    restart: unless-stopped
     ports:
       - "9090:9090"
     volumes:

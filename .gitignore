@@ -38,3 +38,19 @@ samples/openbook/*/
 
 # Ignore the script folder and everything inside it - on testing
 __dev_scripts/
+
+
+# -----------------------------------------------------------------------------
+# Python bytecode cache
+# -----------------------------------------------------------------------------
+**/__pycache__/
+*.py[cod]
+*.pyc
+.venv/
+
+
+# -----------------------------------------------------------------------------
+# marimo cache, session state, and temporary logs
+# -----------------------------------------------------------------------------
+__marimo__/
+.marimo.toml

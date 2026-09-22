@@ -1,6 +1,7 @@
 services:
   datadog:
-    image: docker.io/datadog/agent:7.83.0-fips-jmx
+    image: docker.io/datadog/agent:7.83.2-fips-full
+    restart: unless-stopped
     environment:
       DD_API_KEY: ${DD_API_KEY}
       DD_SITE: ${DD_SITE}

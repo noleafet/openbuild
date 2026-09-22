@@ -41,7 +41,14 @@ openbuild/
 │       └── ...generated_local_volume_dirs/
 ├── scripts/
 │   ├── py/
-│   │   └── generate_devops_yaml.py
+│   │   ├── devops_compose_yaml_generator/
+│   │   │   ├── catalog.py
+│   │   │   ├── compose.py
+│   │   │   ├── data/
+│   │   │   │   └── tools.json
+│   │   │   ├── generator.py
+│   │   │   └── resolver.py
+│   │   └── devops_compose_yaml_generator_notebook.py
 │   └── ps/
 │       └── pcup.ps1
 ├── README.md
@@ -62,23 +69,33 @@ The `devops/` directory groups container definitions by lifecycle stage and tech
 - `08MONITOR_*` — monitoring and observability tools, such as Grafana, Prometheus, ELK, Splunk, and Datadog
 
 
-#### 2. Compose blueprint generation utility (optional)
+#### 2. Compose blueprint generation utility (Optional)
 
 [![Python](https://img.shields.io/badge/Python-3.x-3776ab?logo=python&logoColor=white)](https://www.python.org/)
 [![uv](https://img.shields.io/badge/uv-latest-de5fe9?logo=astral&logoColor=white)](https://docs.astral.sh/uv/)
 
-The script `scripts/py/generate_devops_yaml.py` creates example local Compose files for common services. It resolves suitable container image tags from Docker Hub and writes the generated files to `devops/`.
+The package in `scripts/py/devops_compose_yaml_generator/` creates example local Compose files for common services. It resolves suitable container image tags from Docker Hub or the image's configured registry and writes the generated files to `devops/`. 
+The catalog metadata is stored in `scripts/py/devops_compose_yaml_generator/data/tools.json`. 
 
 #### Generate DevOps Compose files
 
-From the repository root, run the generator from its directory so its relative output path resolves to `devops/`:
+From the repository root, run the module from its directory so the default output path resolves to `devops/`:
 
 ```bash
 cd scripts/py
-uv run generate_devops_yaml.py
+uv run --with requests --with packaging python -m devops_compose_yaml_generator.generator
 ```
 
-The first run may take a little longer while `uv` creates the isolated environment and installs the inline dependencies.
+Use `--output-dir PATH` to write manifests elsewhere or `--force` to overwrite existing files.
+
+#### Open in marimo notebook
+
+The marimo notebook is a thin interactive layer over the generator package. It does not write files when opened; choose an output directory and click the explicit generate button.
+
+```bash
+cd scripts/py
+uv run --with marimo --with requests --with packaging marimo edit devops_compose_yaml_generator_notebook.py
+```
 
 
 ### 3. Example application

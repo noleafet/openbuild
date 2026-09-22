@@ -1,6 +1,7 @@
 services:
   maven:
     image: docker.io/library/maven:alpine
+    restart: unless-stopped
     volumes:
       - ${MAVEN_WORKSPACE}:/usr/src/app
       - ~/.m2:/root/.m2

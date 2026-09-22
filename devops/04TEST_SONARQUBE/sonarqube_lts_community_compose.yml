@@ -1,6 +1,7 @@
 services:
   sonarqube:
     image: docker.io/library/sonarqube:lts-community
+    restart: unless-stopped
     ports:
       - "9000:9000"
     volumes:

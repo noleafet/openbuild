@@ -1,6 +1,7 @@
 services:
   gitlab:
-    image: docker.io/gitlab/gitlab-ce:latest
+    image: docker.io/gitlab/gitlab-ce:19.4.0-ce.0
+    restart: unless-stopped
     ports:
       - "443:443"
       - "80:80"

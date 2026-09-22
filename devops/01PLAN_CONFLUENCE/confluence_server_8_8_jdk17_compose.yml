@@ -1,6 +1,7 @@
 services:
   confluence_server:
-    image: docker.io/atlassian/confluence-server:latest
+    image: docker.io/atlassian/confluence-server:8.8-jdk17
+    restart: unless-stopped
     ports:
       - "8090:8090"
       - "8091:8091"

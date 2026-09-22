@@ -1,6 +1,7 @@
 services:
   git_client:
     image: docker.io/alpine/git:316123a
+    restart: unless-stopped
     volumes:
       - ./workspace:/git
 

@@ -1,6 +1,7 @@
 services:
   gradle:
-    image: docker.io/library/gradle:jdk
+    image: docker.io/library/gradle:jdk26
+    restart: unless-stopped
     volumes:
       - ${GRADLE_WORKSPACE}:/home/gradle/project
 

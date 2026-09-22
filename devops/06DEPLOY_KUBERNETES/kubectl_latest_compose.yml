@@ -1,6 +1,7 @@
 services:
   kubectl:
     image: docker.io/bitnami/kubectl:latest
+    restart: unless-stopped
     volumes:
       - ~/.kube:/root/.kube
 

@@ -1,6 +1,7 @@
 services:
   jira:
-    image: docker.io/atlassian/jira-software:latest
+    image: docker.io/atlassian/jira-software:10.6.0
+    restart: unless-stopped
     ports:
       - "8080:8080"
     volumes:

@@ -1,6 +1,7 @@
 services:
   splunk:
     image: docker.io/splunk/splunk:580016365a30-rhel9
+    restart: unless-stopped
     ports:
       - "8000:8000"
     environment:

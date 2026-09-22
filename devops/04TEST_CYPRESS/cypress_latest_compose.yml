@@ -1,6 +1,0 @@
-services:
-  cypress:
-    image: docker.io/cypress/included:latest
-    volumes:
-      - ${CYPRESS_WORKSPACE}:/e2e
-

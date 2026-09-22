@@ -1,4 +1,5 @@
 services:
   openshift_cli:
     image: docker.io/openshift/origin-cli:v4.0.0
+    restart: unless-stopped
 

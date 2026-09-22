@@ -1,6 +1,7 @@
 services:
   elasticsearch:
     image: docker.io/elasticsearch/elasticsearch:8.12.0
+    restart: unless-stopped
     ports:
       - "9200:9200"
     environment:

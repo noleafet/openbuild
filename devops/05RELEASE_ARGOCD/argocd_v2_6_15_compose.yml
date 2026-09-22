@@ -1,6 +1,7 @@
 services:
   argocd:
     image: docker.io/argoproj/argocd:v2.6.15
+    restart: unless-stopped
     ports:
       - "8082:8080"
 

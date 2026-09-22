@@ -1,6 +1,7 @@
 services:
   ansible:
-    image: docker.io/ansible/ansible-runner:latest
+    image: quay.io/ansible/ansible-runner:latest
+    restart: unless-stopped
     volumes:
       - ${VOLUME_DIR}/ansible:/runner
 

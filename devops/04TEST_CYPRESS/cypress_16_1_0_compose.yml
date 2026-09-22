@@ -1,0 +1,7 @@
+services:
+  cypress:
+    image: docker.io/cypress/included:16.1.0
+    restart: unless-stopped
+    volumes:
+      - ${CYPRESS_WORKSPACE}:/e2e
+

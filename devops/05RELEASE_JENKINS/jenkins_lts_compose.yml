@@ -1,6 +1,7 @@
 services:
   jenkins:
     image: docker.io/library/jenkins/jenkins:lts
+    restart: unless-stopped
     privileged: true
     user: root
     ports:
