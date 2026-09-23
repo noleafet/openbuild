@@ -1,6 +1,6 @@
 services:
   node_npm:
-    image: docker.io/library/node:alpine3.24
+    image: docker.io/library/node:26.10.0-alpine3.24
     restart: unless-stopped
     volumes:
       - ${NODE_WORKSPACE}:/usr/src/app

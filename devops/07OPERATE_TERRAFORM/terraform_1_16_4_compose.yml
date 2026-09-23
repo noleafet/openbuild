@@ -1,6 +1,6 @@
 services:
   terraform:
-    image: docker.io/hashicorp/terraform:1.16.3
+    image: docker.io/hashicorp/terraform:1.16.4
     restart: unless-stopped
     volumes:
       - ${VOLUME_DIR}/terraform:/workspace
