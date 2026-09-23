@@ -73,7 +73,7 @@ The `devops/` directory groups container definitions by lifecycle stage and tech
 
 #### 2. Template utility (Optional)
 
-> **:robot: AI-generated:** The scripts here are AI generated, reviewed and tuned.:musical_note:
+> **:robot: AI-generated:** The scripts here are AI generated, reviewed and tuned. :musical_note:
 
 [![Python](https://img.shields.io/badge/Python-3.x-3776ab?logo=python&logoColor=white)](https://www.python.org/)
 [![uv](https://img.shields.io/badge/uv-latest-de5fe9?logo=astral&logoColor=white)](https://docs.astral.sh/uv/)
