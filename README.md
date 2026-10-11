@@ -8,6 +8,12 @@
 [![Podman Compose](https://img.shields.io/badge/Podman%20Compose-container%20orchestration-892ca0?logo=podman&logoColor=white)](https://docs.podman.io/en/latest/markdown/podman-compose.1.html)
 [![Docker Compose](https://img.shields.io/badge/Docker%20Compose-container%20orchestration-2496ed?logo=docker&logoColor=white)](https://docs.docker.com/compose/)
 
+<br>
+
+> **💤 Hiatus notice:** *I am currently working on another side project, gonna go back here possibly next month, November 2026.* 
+
+<br>
+
 Navigating the modern DevOps landscape often feels overwhelming due to tool sprawl. OpenBuild solves this by organizing common, open-source DevOps utilities by lifecycle stages, giving you a centralized sandbox to test how different technologies interact.
 
 The goal is simple: make it effortless to explore different DevOps technologies without the friction of building massive, complex configuration stacks from scratch. With OpenBuild, you can deploy standalone services or entire toolchains instantly from a single compose file.
